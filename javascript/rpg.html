@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題3 RPG</title>
+</head>
+
+<body>
+    <script>
+        const money = 300; //所持金
+        //アイテムの金額
+        const items = {
+            yakusou: 10,
+            seisui: 100,
+            kinobou: 50
+        };
+
+        //入力例1
+        const orders = [
+            { item: 'yakusou', quantity: 5 },
+            { item: 'seisui', quantity: 3 },
+            { item: 'kinobou', quantity: 1 },
+            { item: 'seisui', quantity: 1 },
+            { item: 'yakusou', quantity: 3 }
+        ];
+
+        function RPG(money, items, orders) {
+            orders.forEach(order => {
+                //console.log(items['yakusou'])
+                const cost = items[order.item] * order.quantity;
+                if (money >= cost) {
+                    //お金がコストより大きいときだけ
+                    money -= cost;
+                    //console.log(money)
+                }
+            });
+            console.log(`最終的な残金は${money}G`);
+        }
+
+        RPG(money, items, orders);
+    </script>
+</body>
+
+</html>

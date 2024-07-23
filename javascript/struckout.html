@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題2 ストラックアウト</title>
+</head>
+
+<body>
+    <script>
+        const scores = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+            [10, 11, 12]
+        ];
+
+        //当たった場所
+        const hits = [
+            ['o', 'x', 'o'],
+            ['o', 'o', 'x'],
+            ['o', 'x', 'o'],
+            ['x', 'x', 'x']
+        ];
+
+        function struckout(scores, hits) {
+            let totalScore = 0;
+
+            //4行数
+            for (let i = 0; i < scores.length; i++) {
+                //3列
+                //console.log(scores[i])
+                for (let j = 0; j < scores[i].length; j++) {
+                    //console.log(hits[i][j])
+                    if (hits[i][j] === 'o') {
+                        totalScore += scores[i][j];
+                    }
+                }
+            }
+            console.log(totalScore)
+        }
+
+        struckout(scores, hits);
+
+    </script>
+</body>
+
+</html>

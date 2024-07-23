@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題1 Sapica</title>
+</head>
+
+<body>
+    <script>
+        //カード残高
+        const cardBalance = 2000;//入力例1
+        const cardBalance2 = 3000;//入力例2
+
+        //運賃
+        const fares = [300, 500, 300, 100, 100]; 
+        const fares2 = [1000, 1000, 1000]
+
+        //入力例1
+        function sapicaBus(cardBalance, fares) {
+            let balance = cardBalance; //残高
+            let points = 0; //ポイント
+
+            console.log(`最初のカード残高: ${balance}円`);
+
+            fares.forEach((fare, index) => {
+                if (points >= fare) {
+                    //ポイントが運賃以上の場合ポイントを運賃分引く
+                    points -= fare;
+                    console.log(`${index + 1}回目降車時、運賃${fare}円。カード残高: ${balance}円 ポイント: ${points}`);
+                } else {
+                    //ポイントが足りない場合
+                    balance -= fare; //カード残高から運賃を引く
+                    points += Math.floor(fare * 0.1); //運賃の10%をポイントとして追加
+                    console.log(`${index + 1}回目降車時、運賃${fare}円。カード残高: ${balance}円 ポイント: ${points}`);
+                }
+            });
+        }
+        sapicaBus(cardBalance, fares);
+
+        //入力例2
+        function sapicaBus2(cardBalance2, fares2) {
+            let balance = cardBalance2; //残高
+            let points = 0; //ポイント
+
+            console.log(`最初のカード残高: ${balance}円`);
+
+            fares2.forEach((fare, index) => {
+                if (points >= fare) {
+                    //ポイントが運賃以上の場合ポイントを運賃分引く
+                    points -= fare;
+                    console.log(`${index + 1}回目降車時、運賃${fare}円。カード残高: ${balance}円 ポイント: ${points}`);
+                } else {
+                    //ポイントが足りない場合
+                    balance -= fare; //カード残高から運賃を引く
+                    points += Math.floor(fare * 0.1); //運賃の10%をポイントとして追加
+                    console.log(`${index + 1}回目降車時、運賃${fare}円。カード残高: ${balance}円 ポイント: ${points}`);
+                }
+            });
+        }
+        sapicaBus2(cardBalance2, fares2);
+
+    </script>
+</body>
+
+</html>
